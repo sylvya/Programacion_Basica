@@ -28,3 +28,5 @@ alert("Estas en un campo minado,\n" +
 	" elige una posición entre el "+
 	 " 0 y el 2 para X y para Y");
 
+alert("hola mundo");
+
