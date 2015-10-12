@@ -34,38 +34,40 @@ function inicio()
 
 }
 
+
 function dibujarGrilla(pony){
 
 	var pony = lienzo;
 	var rayas= Number(t.value);//conversion
 	var ancho = 300, alto=300;
-	var linea, punto;
+	var linea;
 	var anchoLinea = ancho / rayas;
 	var limiteX = ancho /anchoLinea;
 	var limiteY = alto /anchoLinea;
+	lienzo.clearRect(0,0, dibujo.width, dibujo.height);
 
 	pony.strokeStyle = "AAA";
 
 
 	for (linea = 0; linea <= limiteX; linea++)//la condicion siempre es un mientras, no un hasta.
 	{
-		punto = linea * anchoLinea;
-		pony.beginPath();
-		pony.strokeStyle="#000";
-		pony.moveTo(punto, 0+(linea*50));
-		pony.lineTo(punto, alto);
+		
+		pony.strokeStyle="#AAA";//comenzar trazo o camino
+		pony.moveTo(linea*10, 0);
+		pony.lineTo(alto -(linea * 10), alto, ancho);
 		pony.stroke();
-		pony.closePath();
+		pony.closePath();//cerrar trazo o camino
 	}
 
 	for (linea = 0; linea <= limiteY; linea++)//la condicion siempre es un mientras, no un hasta.
 	{
-		punto = linea * anchoLinea;
+		
 		pony.beginPath();//comenzar trazo
-		pony.strokeStyle="#000";
-		pony.moveTo(0, punto +(linea * 50));
-		pony.lineTo(alto, punto);
+		pony.strokeStyle="#AAA";
+		pony.moveTo(0,linea * 10);
+		pony.lineTo( ancho, alto - (linea * 10));
 		pony.stroke();
 		pony.closePath();//finalizar trazo
 	}
+
 }
